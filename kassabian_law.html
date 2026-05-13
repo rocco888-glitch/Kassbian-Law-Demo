@@ -1,0 +1,902 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Kassabian Law Professional Corporation – Real Estate, Wills & Estates law in North York, Toronto. Led by L. Daniel Hicks." />
+  <title>Kassabian Law | Real Estate & Wills · North York, Toronto</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg:      #0b0b0b;
+      --bg2:     #101010;
+      --bg3:     #151515;
+      --surface: #191919;
+      --border:  #272727;
+      --gold:    #b8892a;
+      --gold-lt: #d4a94a;
+      --off:     #9a9288;
+      --muted:   #525252;
+      --white:   #f4f1ec;
+    }
+
+    * { margin:0; padding:0; box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
+
+    body {
+      font-family: 'Jost', sans-serif;
+      background: var(--bg);
+      color: var(--white);
+      overflow-x: hidden;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed;
+      top:0; left:0; right:0;
+      z-index: 300;
+      background: rgba(11,11,11,0.97);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 6%;
+      height: 72px;
+    }
+
+    .nav-left { display:flex; align-items:center; }
+
+    .nav-brand { display:flex; flex-direction:column; gap:2px; }
+
+    .nav-brand-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--white);
+      letter-spacing: 0.03em;
+      line-height: 1;
+    }
+
+    .nav-brand-sub {
+      font-size: 0.58rem;
+      font-weight: 500;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+
+    .nav-div { width:1px; height:28px; background:var(--border); margin:0 2rem; }
+
+    .nav-links { list-style:none; display:flex; align-items:center; gap:2.5rem; }
+
+    .nav-links a {
+      color: var(--off);
+      text-decoration: none;
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--white); }
+
+    .nav-cta {
+      background: var(--gold) !important;
+      color: var(--bg) !important;
+      padding: 0.55rem 1.4rem;
+      font-size: 0.7rem !important;
+      font-weight: 600 !important;
+      letter-spacing: 0.15em !important;
+      transition: background 0.2s !important;
+    }
+
+    .nav-cta:hover { background: var(--gold-lt) !important; }
+
+    /* HERO */
+    .hero {
+      min-height: 100vh;
+      background: var(--bg2);
+      display: flex;
+      align-items: center;
+      padding: 110px 6% 80px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(184,137,42,0.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(184,137,42,0.025) 1px, transparent 1px);
+      background-size: 70px 70px;
+      pointer-events: none;
+    }
+
+    .hero-glow {
+      position: absolute;
+      top: 40%; right: 8%;
+      transform: translateY(-50%);
+      width: 550px; height: 550px;
+      background: radial-gradient(circle, rgba(184,137,42,0.07) 0%, transparent 65%);
+      pointer-events: none;
+    }
+
+    .hero-word {
+      position: absolute;
+      right: -2rem; bottom: -4rem;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 20vw;
+      font-weight: 700;
+      color: rgba(184,137,42,0.03);
+      line-height: 1;
+      user-select: none;
+      pointer-events: none;
+    }
+
+    .hero-inner {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 6rem;
+      align-items: center;
+      width: 100%;
+      max-width: 1200px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-eyebrow {
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.4em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 2rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .hero-eyebrow::before { content:''; display:block; width:40px; height:1px; background:var(--gold); }
+
+    .hero h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(3rem, 5.5vw, 5.8rem);
+      font-weight: 300;
+      color: var(--white);
+      line-height: 1.06;
+      letter-spacing: -0.02em;
+      margin-bottom: 2rem;
+    }
+
+    .hero h1 strong { font-weight: 700; display: block; }
+    .hero h1 em { font-style: italic; color: var(--gold); }
+
+    .hero-desc {
+      font-size: 1rem;
+      color: var(--off);
+      line-height: 1.9;
+      font-weight: 300;
+      max-width: 480px;
+      margin-bottom: 3rem;
+    }
+
+    .hero-actions { display:flex; align-items:center; gap:1.5rem; margin-bottom:4.5rem; }
+
+    .btn-gold {
+      background: var(--gold);
+      color: var(--bg);
+      padding: 1rem 2.5rem;
+      text-decoration: none;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      transition: background 0.2s, transform 0.15s;
+    }
+
+    .btn-gold:hover { background: var(--gold-lt); transform: translateY(-2px); }
+
+    .btn-ghost {
+      color: var(--off);
+      text-decoration: none;
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 2px;
+      transition: color 0.2s, border-color 0.2s;
+    }
+
+    .btn-ghost:hover { color: var(--white); border-color: var(--gold); }
+
+    .hero-stats { display:flex; gap:3rem; padding-top:3rem; border-top:1px solid var(--border); }
+
+    .hs-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.8rem;
+      font-weight: 600;
+      color: var(--white);
+      line-height: 1;
+    }
+
+    .hs-label {
+      font-size: 0.6rem;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-top: 0.3rem;
+    }
+
+    /* Hero Panel */
+    .hero-panel {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-panel::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--gold), var(--gold-lt), var(--gold));
+    }
+
+    .hp-head { padding:1.8rem 2rem; border-bottom:1px solid var(--border); }
+
+    .hp-head-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: var(--white);
+    }
+
+    .hp-head-sub {
+      font-size: 0.62rem;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-top: 0.3rem;
+    }
+
+    .hp-body { padding:1rem; display:flex; flex-direction:column; gap:2px; }
+
+    .hp-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.95rem 1rem;
+      background: var(--bg3);
+      font-size: 0.85rem;
+      color: var(--off);
+      border-left: 2px solid transparent;
+      transition: border-color 0.2s, color 0.2s, background 0.2s;
+      cursor: default;
+    }
+
+    .hp-item:hover { border-left-color: var(--gold); color: var(--white); background: var(--surface); }
+    .hp-arrow { font-size: 0.7rem; color: var(--muted); }
+
+    .hp-foot { padding:1.4rem 2rem; border-top:1px solid var(--border); text-align:center; }
+    .hp-foot a { font-size:0.7rem; font-weight:600; letter-spacing:0.15em; text-transform:uppercase; color:var(--gold); text-decoration:none; transition:color 0.2s; }
+    .hp-foot a:hover { color: var(--gold-lt); }
+
+    /* METRICS */
+    .metrics {
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 2rem 6%;
+      display: flex;
+      justify-content: center;
+    }
+
+    .metric { text-align:center; padding:0 4rem; border-right:1px solid var(--border); }
+    .metric:last-child { border-right:none; }
+
+    .metric-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.4rem;
+      font-weight: 600;
+      color: var(--gold-lt);
+      line-height: 1;
+    }
+
+    .metric-label {
+      font-size: 0.6rem;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-top: 0.3rem;
+    }
+
+    /* SECTIONS */
+    section { padding: 7rem 6%; }
+
+    .eyebrow {
+      font-size: 0.62rem;
+      font-weight: 600;
+      letter-spacing: 0.4em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.9rem;
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+    }
+
+    .eyebrow::before { content:''; display:block; width:24px; height:1px; background:var(--gold); }
+
+    h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2rem, 3vw, 3rem);
+      font-weight: 600;
+      color: var(--white);
+      line-height: 1.1;
+    }
+
+    /* SERVICES */
+    .services { background: var(--bg); }
+
+    .svc-head {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: end;
+      margin-bottom: 4rem;
+    }
+
+    .svc-head p { font-size:0.92rem; color:var(--off); line-height:1.9; font-weight:300; }
+
+    .svc-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: var(--border);
+    }
+
+    .svc-card {
+      background: var(--bg2);
+      padding: 3rem 2.5rem;
+      position: relative;
+      transition: background 0.25s;
+    }
+
+    .svc-card:hover { background: var(--surface); }
+
+    .svc-card::after {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 1px;
+      background: var(--gold);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.35s;
+    }
+
+    .svc-card:hover::after { transform: scaleX(1); }
+
+    .svc-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--gold);
+      letter-spacing: 0.1em;
+      margin-bottom: 1.5rem;
+      opacity: 0.7;
+    }
+
+    .svc-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.35rem;
+      font-weight: 600;
+      color: var(--white);
+      line-height: 1.3;
+      margin-bottom: 1rem;
+    }
+
+    .svc-desc { font-size:0.82rem; color:var(--off); line-height:1.8; font-weight:300; }
+
+    /* ABOUT */
+    .about { background: var(--bg2); }
+
+    .about-grid { display:grid; grid-template-columns:1fr 1fr; gap:6rem; align-items:start; }
+
+    .about-text p { font-size:0.95rem; color:var(--off); line-height:1.9; font-weight:300; margin-bottom:1.3rem; }
+    .about-text strong { color:var(--white); font-weight:600; }
+
+    .about-rule { width:40px; height:1px; background:var(--gold); margin:2rem 0; }
+
+    .about-tags { display:flex; flex-wrap:wrap; gap:0.5rem; margin-top:2rem; }
+
+    .about-tag {
+      background: transparent;
+      border: 1px solid var(--border);
+      color: var(--off);
+      padding: 0.35rem 0.9rem;
+      font-size: 0.68rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      transition: border-color 0.2s, color 0.2s;
+    }
+
+    .about-tag:hover { border-color:var(--gold); color:var(--gold-lt); }
+
+    .profile-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      padding: 3rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .profile-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--gold), var(--gold-lt), transparent);
+    }
+
+    .profile-card::after {
+      content: 'DH';
+      position: absolute;
+      bottom: -1.5rem; right: 1.5rem;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 8rem;
+      font-weight: 700;
+      color: rgba(184,137,42,0.04);
+      line-height: 1;
+      pointer-events: none;
+    }
+
+    .profile-mono {
+      width: 64px; height: 64px;
+      border: 1px solid var(--gold);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.6rem;
+      font-weight: 600;
+      color: var(--gold-lt);
+      margin-bottom: 1.5rem;
+    }
+
+    .profile-name { font-family:'Cormorant Garamond',serif; font-size:1.9rem; font-weight:600; color:var(--white); margin-bottom:0.3rem; }
+
+    .profile-role { font-size:0.62rem; font-weight:600; letter-spacing:0.22em; text-transform:uppercase; color:var(--gold); margin-bottom:2rem; }
+
+    .profile-body { font-size:0.88rem; color:var(--off); line-height:1.9; font-weight:300; margin-bottom:1rem; }
+
+    .profile-stats { display:grid; grid-template-columns:1fr 1fr; gap:1px; background:var(--border); margin-top:2rem; }
+
+    .ps-item { background:var(--bg3); padding:1.2rem; text-align:center; }
+    .ps-num { font-family:'Cormorant Garamond',serif; font-size:2rem; font-weight:600; color:var(--gold-lt); line-height:1; }
+    .ps-label { font-size:0.58rem; font-weight:500; letter-spacing:0.15em; text-transform:uppercase; color:var(--muted); margin-top:0.3rem; }
+
+    /* REVIEWS */
+    .reviews { background: var(--bg); }
+
+    .reviews-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 4rem;
+      padding-bottom: 2.5rem;
+      border-bottom: 1px solid var(--border);
+      flex-wrap: wrap;
+      gap: 1.5rem;
+    }
+
+    .rating-block { display:flex; align-items:center; gap:1.5rem; }
+    .rating-big { font-family:'Cormorant Garamond',serif; font-size:5rem; font-weight:300; color:var(--white); line-height:1; }
+    .rating-stars { color:var(--gold); font-size:0.85rem; letter-spacing:3px; margin-bottom:0.3rem; }
+    .rating-count { font-size:0.65rem; color:var(--muted); letter-spacing:0.12em; text-transform:uppercase; }
+
+    .rv-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--border); }
+
+    .rv-card {
+      background: var(--bg2);
+      padding: 2.5rem;
+      transition: background 0.2s;
+      position: relative;
+    }
+
+    .rv-card:hover { background: var(--surface); }
+
+    .rv-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 1px;
+      background: var(--gold);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.3s;
+    }
+
+    .rv-card:hover::before { transform: scaleX(1); }
+
+    .rv-quote { font-family:'Cormorant Garamond',serif; font-size:3.5rem; color:var(--gold); line-height:0.6; margin-bottom:1.3rem; opacity:0.3; }
+    .rv-text { font-size:0.88rem; color:var(--off); line-height:1.85; font-weight:300; font-style:italic; margin-bottom:1.8rem; }
+    .rv-rule { width:20px; height:1px; background:var(--gold); margin-bottom:1rem; opacity:0.6; }
+    .rv-name { font-size:0.78rem; font-weight:600; color:var(--white); letter-spacing:0.06em; }
+    .rv-date { font-size:0.65rem; color:var(--muted); margin-top:0.25rem; }
+
+    /* CONTACT */
+    .contact { background: var(--bg2); }
+
+    .contact-grid { display:grid; grid-template-columns:1fr 1fr; gap:6rem; margin-top:4rem; }
+
+    .contact-info p { font-size:0.92rem; color:var(--off); line-height:1.9; font-weight:300; margin-bottom:3rem; }
+
+    .cd-row { display:flex; gap:1.5rem; padding:1.5rem 0; border-bottom:1px solid var(--border); }
+    .cd-row:first-of-type { border-top:1px solid var(--border); }
+    .cd-label { font-size:0.6rem; font-weight:700; letter-spacing:0.25em; text-transform:uppercase; color:var(--gold); min-width:90px; padding-top:2px; }
+    .cd-val { font-size:0.92rem; color:var(--off); line-height:1.6; }
+    .cd-val a { color:var(--off); text-decoration:none; border-bottom:1px solid transparent; transition:color 0.2s, border-color 0.2s; }
+    .cd-val a:hover { color:var(--gold-lt); border-color:var(--gold); }
+
+    .form-box {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      padding: 3rem;
+      position: relative;
+    }
+
+    .form-box::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--gold), var(--gold-lt), transparent);
+    }
+
+    .form-title { font-family:'Cormorant Garamond',serif; font-size:1.5rem; font-weight:600; color:var(--white); margin-bottom:2rem; }
+
+    .fg { margin-bottom:1.1rem; }
+
+    .fg label { display:block; font-size:0.6rem; font-weight:600; letter-spacing:0.22em; text-transform:uppercase; color:var(--muted); margin-bottom:0.5rem; }
+
+    .fg input, .fg select, .fg textarea {
+      width: 100%;
+      padding: 0.85rem 1rem;
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      color: var(--white);
+      font-family: 'Jost', sans-serif;
+      font-size: 0.88rem;
+      font-weight: 300;
+      outline: none;
+      transition: border-color 0.2s;
+      appearance: none;
+    }
+
+    .fg select option { background:var(--bg); color:var(--white); }
+    .fg input:focus, .fg select:focus, .fg textarea:focus { border-color:var(--gold); }
+    .fg input::placeholder, .fg textarea::placeholder { color:var(--muted); }
+    .fg textarea { height:110px; resize:vertical; }
+    .fg-row { display:grid; grid-template-columns:1fr 1fr; gap:1rem; }
+
+    .f-submit {
+      width: 100%;
+      background: var(--gold);
+      color: var(--bg);
+      border: none;
+      padding: 1.1rem;
+      font-family: 'Jost', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      cursor: pointer;
+      margin-top: 0.5rem;
+      transition: background 0.2s;
+    }
+
+    .f-submit:hover { background: var(--gold-lt); }
+
+    /* FOOTER */
+    footer {
+      background: var(--bg);
+      border-top: 1px solid var(--border);
+      padding: 2.5rem 6%;
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      align-items: center;
+      gap: 2rem;
+    }
+
+    .footer-brand { font-family:'Cormorant Garamond',serif; font-size:1.05rem; font-weight:600; color:var(--white); }
+    .footer-brand span { display:block; font-family:'Jost',sans-serif; font-size:0.58rem; font-weight:500; letter-spacing:0.22em; text-transform:uppercase; color:var(--gold); margin-top:3px; }
+    .footer-mid { text-align:center; font-size:0.65rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--muted); }
+    .footer-right { text-align:right; font-size:0.7rem; color:var(--muted); line-height:1.7; }
+
+    /* ANIMATIONS */
+    .fade-in { opacity:0; transform:translateY(20px); transition:opacity 0.7s ease, transform 0.7s ease; }
+    .fade-in.visible { opacity:1; transform:none; }
+
+    @media (max-width: 960px) {
+      .hero-inner { grid-template-columns:1fr; }
+      .hero-panel { display:none; }
+      .svc-grid { grid-template-columns:1fr; }
+      .svc-head { grid-template-columns:1fr; gap:1rem; }
+      .about-grid, .contact-grid { grid-template-columns:1fr; gap:3rem; }
+      .rv-grid { grid-template-columns:1fr; }
+      .nav-links { display:none; }
+      footer { grid-template-columns:1fr; text-align:center; }
+      .footer-right { text-align:center; }
+      .fg-row { grid-template-columns:1fr; }
+      .metrics { flex-wrap:wrap; }
+      .metric { width:50%; border-right:none; border-bottom:1px solid var(--border); padding:1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="nav-left">
+      <div class="nav-brand">
+        <div class="nav-brand-name">Kassabian Law</div>
+        <div class="nav-brand-sub">Professional Corporation · North York, Toronto</div>
+      </div>
+      <div class="nav-div"></div>
+    </div>
+    <ul class="nav-links">
+      <li><a href="#services">Practice Areas</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#reviews">Reviews</a></li>
+      <li><a href="#contact" class="nav-cta">Book Consultation</a></li>
+    </ul>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-glow"></div>
+    <div class="hero-inner">
+      <div>
+        <div class="hero-eyebrow">North York · Toronto Real Estate Law</div>
+        <h1>Trusted.<br><strong>Experienced.</strong><em>Results.</em></h1>
+        <p class="hero-desc">Kassabian Law Professional Corporation provides expert legal services in Real Estate, Wills & Estates, and more — serving clients across Toronto and the Greater Toronto Area for decades.</p>
+        <div class="hero-actions">
+          <a href="#contact" class="btn-gold">Book a Consultation</a>
+          <a href="#services" class="btn-ghost">View Practice Areas</a>
+        </div>
+        <div class="hero-stats">
+          <div><div class="hs-num">4.3</div><div class="hs-label">Google Rating</div></div>
+          <div><div class="hs-num">34+</div><div class="hs-label">Client Reviews</div></div>
+          <div><div class="hs-num">GTA</div><div class="hs-label">Service Area</div></div>
+        </div>
+      </div>
+      <div class="hero-panel fade-in">
+        <div class="hp-head">
+          <div class="hp-head-title">Areas of Practice</div>
+          <div class="hp-head-sub">Expert legal representation in Toronto</div>
+        </div>
+        <div class="hp-body">
+          <div class="hp-item">Residential Real Estate <span class="hp-arrow">›</span></div>
+          <div class="hp-item">Commercial Real Estate <span class="hp-arrow">›</span></div>
+          <div class="hp-item">Wills &amp; Estate Planning <span class="hp-arrow">›</span></div>
+          <div class="hp-item">Estate Administration <span class="hp-arrow">›</span></div>
+          <div class="hp-item">Notary &amp; Document Services <span class="hp-arrow">›</span></div>
+          <div class="hp-item">Powers of Attorney <span class="hp-arrow">›</span></div>
+        </div>
+        <div class="hp-foot"><a href="#contact">Schedule a Free Consultation &rarr;</a></div>
+      </div>
+    </div>
+    <div class="hero-word">LAW</div>
+  </section>
+
+  <div class="metrics">
+    <div class="metric"><div class="metric-num">4.3</div><div class="metric-label">Google Rating</div></div>
+    <div class="metric"><div class="metric-num">34+</div><div class="metric-label">Client Reviews</div></div>
+    <div class="metric"><div class="metric-num">2</div><div class="metric-label">Practice Areas</div></div>
+    <div class="metric"><div class="metric-num">GTA</div><div class="metric-label">Wide Coverage</div></div>
+  </div>
+
+  <section class="services" id="services">
+    <div class="svc-head fade-in">
+      <div><div class="eyebrow">Practice Areas</div><h2>How We Can Help You</h2></div>
+      <p>Expert legal representation across real estate transactions and estate planning matters — handled with precision, care, and decades of experience in Ontario law.</p>
+    </div>
+    <div class="svc-grid">
+      <div class="svc-card fade-in">
+        <div class="svc-num">01</div>
+        <div class="svc-title">Residential Real Estate</div>
+        <p class="svc-desc">Buying or selling a home? We handle all aspects of your residential real estate transaction — purchases, sales, refinancing, title transfers, and new build closings — ensuring a smooth, stress-free process.</p>
+      </div>
+      <div class="svc-card fade-in">
+        <div class="svc-num">02</div>
+        <div class="svc-title">Commercial Real Estate</div>
+        <p class="svc-desc">Expert legal representation for commercial property transactions, including purchases, sales, leasing arrangements, and commercial mortgage refinancing across the Greater Toronto Area.</p>
+      </div>
+      <div class="svc-card fade-in">
+        <div class="svc-num">03</div>
+        <div class="svc-title">Wills &amp; Estate Planning</div>
+        <p class="svc-desc">Protect your assets and your family's future. We draft comprehensive wills tailored to your unique circumstances, ensuring your wishes are clearly documented and legally enforceable.</p>
+      </div>
+      <div class="svc-card fade-in">
+        <div class="svc-num">04</div>
+        <div class="svc-title">Estate Administration</div>
+        <p class="svc-desc">Guiding executors and beneficiaries through the estate administration process — probate applications, asset transfers, creditor claims, and final distribution of estates.</p>
+      </div>
+      <div class="svc-card fade-in">
+        <div class="svc-num">05</div>
+        <div class="svc-title">Powers of Attorney</div>
+        <p class="svc-desc">Drafting powers of attorney for property and personal care, ensuring trusted individuals can make critical decisions on your behalf when it matters most.</p>
+      </div>
+      <div class="svc-card fade-in">
+        <div class="svc-num">06</div>
+        <div class="svc-title">Notary &amp; Document Services</div>
+        <p class="svc-desc">Professional notarization and certification of documents for legal, real estate, immigration, and government purposes — handled efficiently and accurately.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="about" id="about">
+    <div class="about-grid">
+      <div class="about-text fade-in">
+        <div class="eyebrow">About the Firm</div>
+        <h2>Decades of Legal Excellence</h2>
+        <div class="about-rule"></div>
+        <p>Kassabian Law Professional Corporation has been serving clients across Toronto and the GTA for decades. Founded by Garen Kassabian, the firm is now led by <strong>L. Daniel Hicks</strong>, who has continued the tradition of exceptional legal service the firm is known for.</p>
+        <p>Dan is known for being fully engaged when it matters most — keeping deals alive, navigating complex transactions, and delivering exceptional customer service that consistently exceeds client expectations.</p>
+        <p>Whether you are a first-time homebuyer, an experienced investor, or planning your estate, we provide clear, honest legal counsel and the expertise to see your matter through to a successful resolution.</p>
+        <div class="about-tags">
+          <span class="about-tag">Real Estate Law</span>
+          <span class="about-tag">Wills &amp; Estates</span>
+          <span class="about-tag">Estate Planning</span>
+          <span class="about-tag">Notary Services</span>
+          <span class="about-tag">GTA Wide</span>
+          <span class="about-tag">North York</span>
+        </div>
+      </div>
+      <div class="profile-card fade-in">
+        <div class="profile-mono">DH</div>
+        <div class="profile-name">L. Daniel Hicks</div>
+        <div class="profile-role">Principal · Kassabian Law Professional Corporation</div>
+        <p class="profile-body">L. Daniel Hicks is the principal lawyer at Kassabian Law Professional Corporation, carrying forward the firm's long-standing reputation for professional, client-focused legal service across Toronto and the GTA.</p>
+        <p class="profile-body">Described by clients as professional, easy to work with, and someone who genuinely goes above and beyond — Dan is the lawyer realtors and clients return to time and time again for their most important transactions.</p>
+        <div class="profile-stats">
+          <div class="ps-item"><div class="ps-num">4.3</div><div class="ps-label">Google Rating</div></div>
+          <div class="ps-item"><div class="ps-num">34+</div><div class="ps-label">Client Reviews</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="reviews" id="reviews">
+    <div class="reviews-top fade-in">
+      <div><div class="eyebrow">Client Testimonials</div><h2>What Our Clients Say</h2></div>
+      <div class="rating-block">
+        <div class="rating-big">4.3</div>
+        <div><div class="rating-stars">★★★★</div><div class="rating-count">34 Google Reviews</div></div>
+      </div>
+    </div>
+    <div class="rv-grid">
+      <div class="rv-card fade-in">
+        <div class="rv-quote">"</div>
+        <p class="rv-text">I've used Kassabian Law for my personal will, my parents' wills, and multiple real estate transactions. As a realtor with 23 years of experience, when it matters most, Dan is fully engaged — keeping deals alive and delivering results.</p>
+        <div class="rv-rule"></div>
+        <div class="rv-name">Jimmy Vlachos</div>
+        <div class="rv-date">4 months ago · Google Review</div>
+      </div>
+      <div class="rv-card fade-in">
+        <div class="rv-quote">"</div>
+        <p class="rv-text">Dan Hicks assisted me with a real estate transaction and he definitely went above and beyond what I expected. He was professional, easy to talk to and provided exceptional customer service. I recommend him to all my friends and family.</p>
+        <div class="rv-rule"></div>
+        <div class="rv-name">Laurie Nikolov</div>
+        <div class="rv-date">10 months ago · Google Review</div>
+      </div>
+      <div class="rv-card fade-in">
+        <div class="rv-quote">"</div>
+        <p class="rv-text">Daniel Hicks is completely professional, very competent and also a friendly, compassionate and very considerate human being. He helped me through an extremely stressful situation. I felt so relieved to be in such capable hands.</p>
+        <div class="rv-rule"></div>
+        <div class="rv-name">Anja Sagan</div>
+        <div class="rv-date">Google Review</div>
+      </div>
+      <div class="rv-card fade-in">
+        <div class="rv-quote">"</div>
+        <p class="rv-text">As a Realtor, I have been working with Kassabian Law and Daniel Hicks for many years. Every single time, Daniel and his team deliver professional service. I always feel comfortable and confident referring my clients to him.</p>
+        <div class="rv-rule"></div>
+        <div class="rv-name">Natalia Ovsey</div>
+        <div class="rv-date">Google Review · Realtor</div>
+      </div>
+      <div class="rv-card fade-in">
+        <div class="rv-quote">"</div>
+        <p class="rv-text">Mr. Hicks is just incredible. He really cares about his clients. I'm so thankful and appreciative for the work he did for me. You couldn't find a better lawyer.</p>
+        <div class="rv-rule"></div>
+        <div class="rv-name">Verified Client</div>
+        <div class="rv-date">Google Review</div>
+      </div>
+      <div class="rv-card fade-in">
+        <div class="rv-quote">"</div>
+        <p class="rv-text">Right from the start, Mr. Hicks was welcoming, friendly and gave me a great sense of security. It is refreshing to find a lawyer who is down to earth and an all-round nice person. The front office staff are exceptional too.</p>
+        <div class="rv-rule"></div>
+        <div class="rv-name">Verified Client</div>
+        <div class="rv-date">Google Review</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <div class="eyebrow">Contact</div>
+    <h2>Schedule a Consultation</h2>
+    <div class="contact-grid">
+      <div class="fade-in">
+        <p>We welcome inquiries from clients across Toronto and the GTA. Contact us today to discuss your real estate transaction, estate planning needs, or any other legal matter.</p>
+        <div class="cd-row"><div class="cd-label">Address</div><div class="cd-val">8 Sampson Mews, Suite 203<br>North York, ON &nbsp;M3C 0H5<br><small style="color:var(--muted); font-size:0.78rem;">Located in CF Shops at Don Mills</small></div></div>
+        <div class="cd-row"><div class="cd-label">Telephone</div><div class="cd-val"><a href="tel:4164439494">(416) 443-9494</a></div></div>
+        <div class="cd-row"><div class="cd-label">Fax</div><div class="cd-val">(416) 443-0575</div></div>
+        <div class="cd-row"><div class="cd-label">Office Hours</div><div class="cd-val">Monday – Friday &nbsp;·&nbsp; 9:30 AM – 4:30 PM<br>Saturday &amp; Sunday &nbsp;·&nbsp; Closed</div></div>
+      </div>
+      <div class="form-box fade-in">
+        <div class="form-title">Send an Enquiry</div>
+        <form onsubmit="handleSubmit(event)">
+          <div class="fg-row">
+            <div class="fg"><label>Full Name *</label><input type="text" placeholder="Your name" required /></div>
+            <div class="fg"><label>Phone Number *</label><input type="tel" placeholder="(xxx) xxx-xxxx" required /></div>
+          </div>
+          <div class="fg"><label>Email Address</label><input type="email" placeholder="your@email.com" /></div>
+          <div class="fg">
+            <label>Matter Type *</label>
+            <select required>
+              <option value="" disabled selected>Select a practice area...</option>
+              <option>Residential Real Estate — Purchase</option>
+              <option>Residential Real Estate — Sale</option>
+              <option>Residential Real Estate — Refinance</option>
+              <option>Commercial Real Estate</option>
+              <option>Wills &amp; Estate Planning</option>
+              <option>Estate Administration / Probate</option>
+              <option>Power of Attorney</option>
+              <option>Notary / Document Services</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="fg"><label>Brief Description</label><textarea placeholder="Briefly describe your matter..."></textarea></div>
+          <button type="submit" class="f-submit">Submit Enquiry</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-brand">Kassabian Law<span>Professional Corporation · North York, Ontario</span></div>
+    <div class="footer-mid">&copy; 2025 Kassabian Law Prof. Corp. All Rights Reserved</div>
+    <div class="footer-right">(416) 443-9494<br>8 Sampson Mews, Suite 203, North York ON</div>
+  </footer>
+
+  <script>
+    const obs = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.08 });
+    document.querySelectorAll('.fade-in').forEach(el => obs.observe(el));
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', e => {
+        e.preventDefault();
+        const t = document.querySelector(a.getAttribute('href'));
+        if (t) t.scrollIntoView({ behavior: 'smooth' });
+      });
+    });
+    function handleSubmit(e) {
+      e.preventDefault();
+      const btn = e.target.querySelector('.f-submit');
+      btn.textContent = 'Enquiry Submitted — We Will Be in Touch Shortly';
+      btn.style.background = '#2d5c2d';
+      btn.style.color = 'white';
+      setTimeout(() => { btn.textContent = 'Submit Enquiry'; btn.style.background = ''; btn.style.color = ''; e.target.reset(); }, 4000);
+    }
+  </script>
+</body>
+</html>
